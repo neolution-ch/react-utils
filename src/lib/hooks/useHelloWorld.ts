@@ -5,7 +5,7 @@
  */
 const useHelloWorld = () => {
   useEffect(() => {
-    console.log("Hello World");
+    console.log("Hello World!");
   }, []);
 };
 

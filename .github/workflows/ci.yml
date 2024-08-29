@@ -18,7 +18,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
@@ -52,7 +52,7 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -73,18 +73,33 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
 
       - run: yarn --frozen-lockfile
-      - run: yarn prettier-check
       - run: yarn lint
       - run: yarn build
-      - run: yarn jest
+      - run: yarn prettier-check
+
+      # Run cypress tests
+      - run: |
+          yarn --frozen-lockfile
+          yarn cypress run --component
+        working-directory: ./nextjs-testing-app
+
+      # Upload screenshots/videos
+      - name: Upload snapshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-snapshots-${{ matrix.node-version }}
+          path: |
+            ./nextjs-testing-app/cypress/screenshots
+            ./nextjs-testing-app/cypress/videos
