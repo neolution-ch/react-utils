@@ -80,7 +80,7 @@
     "ts-jest": "^29.1.1",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.1.6",
-    "webpack": "^5.82.0",
+    "webpack": "^5.94.0",
     "yalc": "^1.0.0-pre.53"
   },
   "peerDependencies": {
