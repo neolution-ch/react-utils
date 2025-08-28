@@ -26,7 +26,7 @@ describe("useHelloWorld", () => {
   it("should only log 'Hello World' once when re-rendered", () => {
     // Render the hook and re-render it
     const { rerender } = renderHook(() => useHelloWorld());
-    
+
     // Re-render the hook
     rerender();
 
