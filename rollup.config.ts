@@ -52,15 +52,4 @@ export default [
     },
     plugins,
   },
-  {
-    input,
-    output: {
-      file: "dist/index.umd.js",
-      format: "umd",
-      name: "ReactUtilities",
-      sourcemap: true,
-      exports: "named",
-    },
-    plugins,
-  },
 ];
