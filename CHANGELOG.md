@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-03-06
+
 ### Fixed
 
 - types resolutions.
@@ -21,5 +23,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `useConstructor` hook that executes a provided callback only once during the component's lifecycle, similar to a constructor.
 
-[unreleased]: https://github.com/neolution-ch/react-utils/compare/1.1.0...HEAD
+[unreleased]: https://github.com/neolution-ch/react-utils/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/neolution-ch/react-utils/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/neolution-ch/react-utils/compare/1.1.0-rc.0...1.1.0
