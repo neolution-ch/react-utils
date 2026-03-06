@@ -25,7 +25,9 @@ describe("useConstructor", () => {
     cy.get("@initSpy").should("have.been.calledOnce");
 
     // Cause several re-renders
-    cy.contains("Increment").click().click().click();
+    cy.contains("Increment").click();
+    cy.contains("Increment").click();
+    cy.contains("Increment").click();
     cy.get("[data-cy='count']").should("have.text", "3");
 
     cy.get("@initSpy").should("have.been.calledOnce");
@@ -45,7 +47,9 @@ describe("useConstructor", () => {
     };
 
     const Child: React.FC = () => {
-      useConstructor(() => initSpy());
+      useConstructor(() => {
+        initSpy();
+      });
       return <div data-cy="child">Child</div>;
     };
 

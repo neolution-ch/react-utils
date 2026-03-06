@@ -2,18 +2,21 @@ import neolutionEslintConfig from "@neolution-ch/eslint-config-neolution";
 
 export default [
   {
-    ignores: ["**/cypress/", "cypress.config.ts", "vite.config.ts"],
+    ignores: ["vite.config.ts"],
   },
-  ...neolutionEslintConfig.configs.flat["react-library"],
-  {
-    languageOptions: {
-      parserOptions: {
-        tsconfigRootDir: __dirname,
-      },
-    },
-  },
+  ...neolutionEslintConfig.configs.flat.getConfig({
+    ...neolutionEslintConfig.configs.flat.defaults["react-library"],
+    cypressRecommended: true,
+  }),
   {
     rules: {
+      "@typescript-eslint/no-namespace": [
+        "error",
+        {
+          allowDeclarations: true,
+          allowDefinitionFiles: true,
+        },
+      ],
       complexity: ["error", { max: 15 }],
       "no-restricted-imports": [
         "error",
@@ -36,6 +39,12 @@ export default [
     files: ["eslint.config.ts"],
     rules: {
       "unicorn/prefer-module": "off",
+    },
+  },
+  {
+    files: ["**/*.cy.tsx"],
+    rules: {
+      "no-restricted-imports": "off",
     },
   },
 ];

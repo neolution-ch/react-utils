@@ -10,5 +10,6 @@ export const cleanDist: Plugin = {
     fs.rmSync("./dist/rollup.config.d.ts", { force: true });
     fs.rmSync("./dist/eslint.config.d.ts", { force: true });
     fs.rmSync("./dist/rollup.plugins.d.ts", { force: true });
+    fs.rmSync("./dist/cypress.config.d.ts", { force: true });
   },
 };
