@@ -10,14 +10,6 @@ export default [
   }),
   {
     rules: {
-      "@typescript-eslint/no-namespace": [
-        "error",
-        {
-          allowDeclarations: true,
-          allowDefinitionFiles: true,
-        },
-      ],
-      complexity: ["error", { max: 15 }],
       "no-restricted-imports": [
         "error",
         {
@@ -31,6 +23,18 @@ export default [
               message: "Do not reach the 'src' folder in a relative path.",
             },
           ],
+        },
+      ],
+    },
+  },
+  {
+    files: ["**/cypress/**"],
+    rules: {
+      "@typescript-eslint/no-namespace": [
+        "error",
+        {
+          allowDeclarations: true,
+          allowDefinitionFiles: true,
         },
       ],
     },
