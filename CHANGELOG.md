@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `useConstructor` hook using state instead of ref for React 19 compatibility.
+
 ### Added
 
 - `useConstructor` hook that executes a provided callback only once during the component's lifecycle, similar to a constructor.
