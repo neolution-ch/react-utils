@@ -4,6 +4,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",
     "moduleResolution": "node",
     "sourceMap": true,
     "declaration": true,
@@ -17,6 +18,6 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "."
   },
-  "include": ["src", "test"],
+  "include": ["src", "rollup.config.ts", "rollup.plugins.ts", "eslint.config.ts", "cypress.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

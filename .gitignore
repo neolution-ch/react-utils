@@ -30,6 +30,7 @@ storybook-static
 terraform
 
 .npmrc
+.vs
 
 cypress/screenshots
 cypress/videos
